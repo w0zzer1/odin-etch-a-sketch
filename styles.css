@@ -1,6 +1,7 @@
 body{
     border: none;
     cursor: default;
+    text-align: center;
 }
 .container{
     display: flex;
