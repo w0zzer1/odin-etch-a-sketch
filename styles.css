@@ -1,22 +1,36 @@
 div{
-    border: 3px solid black;
+    border: none;
     background-color: purple;
+}
+.container{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+   
 }
-.divRow{
+.box{
+    border: 3px solid black;
+    width: 500px;
+    height: 500px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+}
+
+.divRow{ 
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: row;  
+    flex: 1;
 }
 
 .divElement{
-    width: 20px;
-    height: 20px;
+    background-color: purple;
+    /* border: 1px solid black;  */
+    flex: 1;   
 }
 
 .divElementHover{
     background-color: white;
-    width: 20px;
-    height: 20px;
+    flex: 1; 
 }
