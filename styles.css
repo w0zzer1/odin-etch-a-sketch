@@ -1,0 +1,22 @@
+div{
+    border: 3px solid black;
+    background-color: purple;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.divRow{
+    display: flex;
+    flex-direction: row;
+}
+
+.divElement{
+    width: 20px;
+    height: 20px;
+}
+
+.divElementHover{
+    background-color: white;
+    width: 20px;
+    height: 20px;
+}
