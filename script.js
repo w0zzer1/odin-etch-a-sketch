@@ -17,11 +17,11 @@ resetBtn.addEventListener('click', () => {
     size = prompt("Size? :");
     removeGrid();
     generateGrid(size);
-    mouseOverAdd();
+    mouseOverAdd(mouseOverNormal);
 });
 
-rgbBtn.addEventListener('click', ()=>{rgbDivChanger()});
-normalBtn.addEventListener('click', ()=>{mouseOverAdd()});
+rgbBtn.addEventListener('click', ()=>{mouseOverRemove(mouseOverNormal); mouseOverAdd(mouseOverRGB)});
+normalBtn.addEventListener('click', ()=>{mouseOverRemove(mouseOverRGB); mouseOverAdd(mouseOverNormal)});
 
 function generateGrid(size = 16){
     let box = document.createElement("div");
@@ -41,27 +41,54 @@ function generateGrid(size = 16){
 
 
 
-function mouseOverAdd() {
-    let divs = document.querySelectorAll(".divElement");    
-    divs.forEach((div) =>{
-        div.addEventListener('mouseover', (event)=> {
-            if (primaryMouseButtonDown){
-                div.setAttribute("class", "divElementHover")
-            }}            
-        )
-    });    
+// function mouseOverAdd() {
+//     let divs = document.querySelectorAll(".divElement");    
+//     divs.forEach((div) =>{
+//         div.addEventListener('mouseover', (event)=> {
+//             if (primaryMouseButtonDown){
+//                 div.setAttribute("class", "divElementHover")
+//             }}            
+//         )
+//     });    
+// }
+
+
+// function rgbDivChanger(){
+//     let divs = document.querySelectorAll(".divElement");
+//     divs.forEach((div) =>{
+//         div.addEventListener('mouseover', (event)=>{
+//         if (primaryMouseButtonDown){
+//             var randomColor = Math.floor(Math.random()*16777215).toString(16);
+//             div.style.backgroundColor = "#" + randomColor;
+//             }}
+//         )
+//     })
+// }
+
+function mouseOverAdd(type) {
+    let divs = document.querySelectorAll(".divElement");
+    divs.forEach((div)=>{
+        div.addEventListener('mouseover', type)
+    })
+}
+function mouseOverRemove(type){
+    let divs = document.querySelectorAll(".divElement");
+    divs.forEach((div)=>{
+        div.removeEventListener('mouseover', type)
+    })
 }
 
-function rgbDivChanger(){
-    let divs = document.querySelectorAll(".divElement");
-    divs.forEach((div) =>{
-        div.addEventListener('mouseover', (event)=>{
-        if (primaryMouseButtonDown){
-            var randomColor = Math.floor(Math.random()*16777215).toString(16);
-            div.style.backgroundColor = "#" + randomColor;
-            }}
-        )
-    })
+function mouseOverNormal(event) {
+    if (primaryMouseButtonDown) {
+        event.target.classList.add("divElementHover");
+    }
+}
+
+function mouseOverRGB(event){
+    if (primaryMouseButtonDown){
+        var randomColor = Math.floor(Math.random()*16777215).toString(16);
+        event.target.style.backgroundColor = "#" + randomColor;
+    }
 }
 
 
@@ -72,4 +99,4 @@ function removeGrid(){
 
 
 generateGrid();
-mouseOverAdd();
+mouseOverAdd(mouseOverNormal);
