@@ -1,6 +1,6 @@
-div{
+body{
     border: none;
-    background-color: purple;
+    cursor: default;
 }
 .container{
     display: flex;
@@ -22,15 +22,32 @@ div{
     display: flex;
     flex-direction: row;  
     flex: 1;
+    cursor: default;
 }
 
 .divElement{
-    background-color: purple;
+    background-color: white;
     /* border: 1px solid black;  */
-    flex: 1;   
+    flex: 1;
+    cursor: default;   
 }
 
 .divElementHover{
-    background-color: white;
-    flex: 1; 
+    background-color: black;
+    flex: 1;
+    cursor: default; 
+}
+
+.toRGB{
+    flex:1;
+    cursor: default;
+    /* background-color: purple; */
+}
+
+button{
+    margin: 50px;
+    padding: 10px;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
 }
